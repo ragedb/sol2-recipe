@@ -54,6 +54,7 @@ class Sol2Conan(ConanFile):
     def source(self):
         tools.get(**self.conan_data["sources"][self.version])
         extracted_dir = self.name + "-" + self.version
+        extracted_dir = extracted_dir.replace("-luajit", "")
         os.rename(extracted_dir, self._source_subfolder)
 
     def package(self):
@@ -62,5 +63,4 @@ class Sol2Conan(ConanFile):
         self.copy("*.hpp", src=os.path.join(self._source_subfolder, "include"), dst="include")
 
     def package_info(self):
-        if self.options["lua"].compile_as_cpp:
-            self.cpp_info.defines.append("SOL_USING_CXX_LUA=1")
+        self.cpp_info.defines.append("SOL_USING_CXX_LUA_JIT=1")
