@@ -7,9 +7,9 @@ class Sol2Conan(ConanFile):
     name = "sol2"
     url = "https://github.com/conan-io/conan-center-index"
     homepage = "https://github.com/ThePhD/sol2"
-    description = "C++17 Lua bindings"
-    topics = ("conan", "lua", "c++", "bindings")
-    settings = "compiler"
+    description = "a C++ <-> Lua API wrapper with advanced features and top notch performance"
+    topics = ("lua", "c++", "bindings")
+    settings = "os", "arch", "compiler", "build_type"
     license = "MIT"
     no_copy_source = True
 
@@ -21,12 +21,12 @@ class Sol2Conan(ConanFile):
     def _compilers_minimum_version(self):
         return {
             "gcc": "7",
-            "Visual Studio": "15.7",
+            "Visual Studio": "15.7" if tools.Version(self.version) < "3.3.0" else "16",
             "clang": "6",
             "apple-clang": "10",
         }
 
-    def configure(self):
+    def validate(self):
         if self.settings.compiler.get_safe("cppstd"):
             tools.check_min_cppstd(self, "17")
 
