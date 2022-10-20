@@ -45,8 +45,6 @@ class Sol2Conan(ConanFile):
                                             .format(self.settings.compiler,
                                                     self.settings.compiler.version))
 
-    def requirements(self):
-        self.requires("luajit/2.1.0-beta3-2022-7-22")
 
     def package_id(self):
         self.info.header_only()
