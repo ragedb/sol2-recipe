@@ -26,3 +26,6 @@ sources:
   "3.3.0-exhaustive":
     url: "https://github.com/ragedb/sol2/releases/download/v3.3.0/v3.3.0.tar.gz"
     sha256: "94359d7fd2afb211282f9433e42719633a41fa0b576d57cb9afda7d989a6c362"
+  "3.3.1-exhaustive":
+    url: "https://github.com/ragedb/sol2/releases/download/v3.3.1/v3.3.1.tar.gz"
+    sha256: "ebe856178e0a13ee54732dfdd1f6b9b0dc848dc696a4d20832120bce5c1c5203"
