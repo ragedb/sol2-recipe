@@ -1,11 +1,8 @@
-cmake_minimum_required(VERSION 3.8)
-project(test_package)
-
-include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-conan_basic_setup(TARGETS)
+cmake_minimum_required(VERSION 3.15)
+project(test_package CXX)
 
 find_package(sol2 REQUIRED CONFIG)
 
-add_executable(${PROJECT_NAME} test_package.cpp)
-target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
-target_link_libraries(${PROJECT_NAME} sol2::sol2)
+add_executable(test_package test_package.cpp)
+target_compile_features(test_package PRIVATE cxx_std_17)
+target_link_libraries(test_package PRIVATE sol2::sol2)
